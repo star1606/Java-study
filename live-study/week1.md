@@ -20,12 +20,9 @@ java compiler : .java → .class (Java Byte Code)
 java Compiler (javac 명령어)
 
 Byte Code는 기계어가 아니기 때문에 OS에서 바로 실행되지 않음 이 때 JVM이 OS가 Byte Code를 이해할 수 있도록 해석함. 느리지만 JIT Compiler를 구현해 극복함
-(../image/Untitled(14).png)
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/af78c528-34fa-462c-ad74-b5014e0cae68/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/af78c528-34fa-462c-ad74-b5014e0cae68/Untitled.png)
 
 ## 컴파일 하는 방법
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f9bc54ac-2d3d-48ad-86ad-8ef8a658bfe7/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f9bc54ac-2d3d-48ad-86ad-8ef8a658bfe7/Untitled.png)
 
 java comiler(javac명령어)가 .java를 .class로 바이트코드로 바꿈(기계어 아님)
 
@@ -33,7 +30,6 @@ java comiler(javac명령어)가 .java를 .class로 바이트코드로 바꿈(기
 
 
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f73f1c31-a241-4cb9-b9d6-e6094ccc2e8a/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f73f1c31-a241-4cb9-b9d6-e6094ccc2e8a/Untitled.png)
 
 ## 실행하는 방법
 
@@ -68,7 +64,6 @@ Runtime Data Areas : 메모리 공간
 ### JRE, JDK 차이
 
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5b569650-a94b-4a18-9509-c67e8c496455/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5b569650-a94b-4a18-9509-c67e8c496455/Untitled.png)
 
 JDK : JRE + 개발, 디버깅 툴
 
@@ -76,7 +71,6 @@ JRE : JVM + java 패키지 클래스 (유틸리티, math, lang, awt, swing) + �
 
 JVM : 클래스 로더 + 런타임 데이터 영역 + 실행 엔진
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e5c8d008-3149-4a93-9338-3e8ddf88c795/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e5c8d008-3149-4a93-9338-3e8ddf88c795/Untitled.png)
 
 ### 느낀점
 
