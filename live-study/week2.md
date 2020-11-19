@@ -33,52 +33,81 @@ Primitive type은 총 8가지이다
 
 
 
-## 컴파일 하는 방법
+#### 프리미티브 타입
+8가지 타입이 있다.
+- 기본 값이 있기 때문에 Null이 존재하지 않는다 기본형 타입에 Null을 넣고 싶으면 래퍼 클래스를 활용한다.
+- 실제 값을 저장하는 공간으로 스택(Stack) 메모리에 저장됨
+- 컴파일 시점에 담을 수 있는 크기를 벗어나면 에러를 발생시키는 컴파일 에러가 발생한다. 
+
+#### 레퍼런스 타입(Reference type)
+- 프리미티브 타입을 제외한 타입들이다
+- 빈 객체. Null이 존재한다, 기본 값이 Null
+- 값이 저장되어 있는 곳의 <b>주소값</b>을 저장하는 공간으로 <b>힙(Heap) 메모리</b>에 저장된다.
+- 문법상으로는 에러가 없지만 실행시켰을 때 에러가 나는 런타임 에러가 발생한다. 객체나 배열을 Null 값으로 받으면 <b>NullPointException</b>이 발생하므로 변수 값을 넣어야한다!
 
 
-java comiler(javac명령어)가 .java를 .class로 바이트코드로 바꿈(기계어 아님)
-
-이렇게 생성된 자바 바이트 코드(.class)는 클래스 로더에 의해서 JVM내로 로드 되고, 실행엔진에 의해 기계어로 해석되어 메모리 상(Runtime Data Area)에 배치되게 됩니다. 실행엔진에는 Interpreter와 JIT(Just-In-Time) Compiler가 있습니다. Interpreter는 바이트 코드를 한줄씩 읽기 때문에 실행이 느린 단점이 있었습니다. 이러한 단점을 보완하기 위해 나온 것이 JIT Compiler 입니다. 인터프리터 방식으로 실행을 하다가 적절한 시점에 바이트 코드 전체를 컴파일 하고 더이상 인터프리팅 하지않고 해당 코드를 직접 실행 하는 것 입니다. JIT Compiler에 의해 해석된 코드는 캐시에 보관하기 때문에 한 번 컴파일 된 후에는 빠르게 수행하는 장점이 있습니다. 하지만 인터프리팅 방식보다는 훨씬 오래 걸리므로 한번만 실행하면 되는 코드는 인터프리팅 하는 것이 유리합니다.
-
-
-
-
-## 실행하는 방법
-
-.class가 클래스 로더에 의해 JVM내로 로드되고
-
-실행엔진이 바이트코드를 기계어로 해석함
-
-실행엔진에는 InterPreter와 JIT Compiler가 있음
-
-바이트코드를 기계어로 해석하고 JVM이 자바 프로그램 실행 → JVM이 OS위에 있고 프로그램을 실행시킨다
-
-JVM은 운영체제에 종속적
-
-## 바이트 코드란?
-
-자바 바이트 코드(Java bytecode)란 자바 가상 머신이 이해할 수 있는 언어로 변환된 자바 소스 코드를 의미합니
-
-### JIT 컴파일러는 무엇이며 어떻게 동작하는지?
-
-  Runtime중에 필요에 따라 바이트코드를 기계어로 번역함
-
-실행엔진을 통해서 JIT compiler 실행
-
-### JVM 구성요소
-
-class Loader : RunTime 시점에 클래스를 로딩하게 해주며 클래스의 인스턴스를 생성하면 클래스 로더를 통해 메모리에 로드하게 됩니다.
-
-Runtime Data Areas : 메모리 공간
-
-실행엔진으로 구분되어있음
-
-### JRE, JDK 차이
+#### 리터럴
+상수: 바꿀 수 없는 변수
+리터럴: 변수 및 상수에 저장되는 값 자체
+리터럴은 변수에 넣는 변하지 않는 데이터를 의미한다
+변수나 상수는 메모리에 할당된 공간이고 리터럴은 공간에 저장되는 값이다.
+ex) int a = 1;
+여기서 1은 리터럴이다.(프리미티브 타입도 리터럴이다)
+String은 객체 리터럴이라고 하는데  "Hello World"와 같은 문자열은 한 번 생성하면 변하지 않기 때문에 리터럴이라고 부른다
 
 
+####   변수 선언 및 초기화하는 방법
+1. 변수선언
+	- long a; (long형 변수 a를 선언함. 메모리에 8byte 할당)
+2. 변수 초기화
+	a. 프리미티브 타입 long a = 1;
+	b. 레퍼런스 타입 A a = new A();
 
-JDK : JRE + 개발, 디버깅 툴
+####   변수의 스코프와 라이프타임
+1. 멤버변수(전역변수)
+	- 클래스 전역에서 유효하다
+	```java 
+	public class Hello {
+		int a = 1;
+		public static void main(String[] args) {
+			Hello hello = new Hello();
+			System.out.println(hello.a); // 1
+		}
+	}
+	```
+2. 메소드 변수(지역변수)
+	- 메소드 내에서만 유효하다
+	 ```java public class Hello {
+		int a = 1;
+		int c = 3;
 
-JRE : JVM + java 패키지 클래스 (유틸리티, math, lang, awt, swing) + 런타임 라이브러리
+		public static void main(String[] args) {
+			Hello hello = new Hello();
+			System.out.println(hello.a); // 1
+			
+			int b = 2;
+			System.out.println(b); // 2
+			int c = 4;
+			System.out.println(c);
+			}
+		}
+	```
 
-JVM : 클래스 로더 + 런타임 데이터 영역 + 실행 엔진
+둘 다 유효할 때는 메소드 변수가 우선한다
+````java
+public class Hello {
+
+		int a = 1;
+		int c = 3;
+
+		public static void main(String[] args) {
+			Hello hello = new Hello();
+			System.out.println(hello.a); // 1
+			
+			int b = 2;
+			System.out.println(b); // 2
+			int c = 4;
+			System.out.println(c); // 4
+			}
+		} 
+ ````
