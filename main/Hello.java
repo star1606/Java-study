@@ -13,5 +13,22 @@ public class Hello {
 		System.out.println(b); // 2
 		int c = 4;
 		System.out.println(c);
+		
+		
+		// 묵시적 형변환
+		double e = 100000.0;
+		byte f = 100;
+		
+		e = f;
+		System.out.println(e);
+		
+		// 명시적 형변환
+		long g = 10000;
+		byte h = 100;
+		
+		h = (byte)g;
+		
+		System.out.println("h: " + h);
+
 	}
 }
